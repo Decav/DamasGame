@@ -22,6 +22,7 @@ public class DamasGUID extends javax.swing.JFrame {
 
     public DamasGUID() {
         initComponents();
+
     }
 
     /**
@@ -35,6 +36,7 @@ public class DamasGUID extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -57,6 +59,14 @@ public class DamasGUID extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -170,17 +180,53 @@ public class DamasGUID extends javax.swing.JFrame {
         APeon8.setContentAreaFilled(false);
         jPanel1.add(APeon8, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 590, 90, 90));
 
-        jButton2.setText("jButton2");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 14, 90, 90));
 
-        jButton1.setText("jButton1");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 14, 90, 90));
 
-        jButton3.setText("jButton3");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 14, 90, 90));
 
-        jButton4.setText("jButton4");
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton4.setContentAreaFilled(false);
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 14, 90, 90));
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton5.setContentAreaFilled(false);
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 110, 90, 90));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton6.setContentAreaFilled(false);
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 110, 90, 90));
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton7.setContentAreaFilled(false);
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 110, 90, 90));
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton8.setContentAreaFilled(false);
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 110, 90, 90));
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton9.setContentAreaFilled(false);
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 206, 90, 90));
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton10.setContentAreaFilled(false);
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 206, 90, 90));
+
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton11.setContentAreaFilled(false);
+        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 206, 90, 90));
+
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PiezaRival.png"))); // NOI18N
+        jButton12.setContentAreaFilled(false);
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 206, 90, 90));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tablero.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -208,45 +254,53 @@ public class DamasGUID extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void APeon7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APeon7ActionPerformed
+    private void APeon7ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_APeon7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_APeon7ActionPerformed
+    }// GEN-LAST:event_APeon7ActionPerformed
 
-    private void APeon4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APeon4ActionPerformed
+    private void APeon4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_APeon4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_APeon4ActionPerformed
+    }// GEN-LAST:event_APeon4ActionPerformed
 
-    private void APeon4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APeon4MouseClicked
+    private void APeon4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_APeon4MouseClicked
         // TODO add your handling code here:
         if (evt.getButton() == 3) {
             this.APeon4.setLocation(this.APeon4.getX() + 96, this.APeon4.getY() - 96);
         } else if (evt.getButton() == 1) {
             this.APeon4.setLocation(this.APeon4.getX() - 96, this.APeon4.getY() - 96);
         }
-    }//GEN-LAST:event_APeon4MouseClicked
+    }// GEN-LAST:event_APeon4MouseClicked
 
-    private void APeon5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APeon5MouseClicked
+    private void APeon5MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_APeon5MouseClicked
         // TODO add your handling code here:
         if (evt.getButton() == 3) {
             this.APeon5.setLocation(this.APeon5.getX() + 96, this.APeon5.getY() - 96);
         } else if (evt.getButton() == 1) {
             this.APeon5.setLocation(this.APeon5.getX() - 96, this.APeon5.getY() - 96);
         }
-    }//GEN-LAST:event_APeon5MouseClicked
+    }// GEN-LAST:event_APeon5MouseClicked
 
-    private void APeon6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_APeon6MouseClicked
+    private void APeon6MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_APeon6MouseClicked
         // TODO add your handling code here:
         if (evt.getButton() == 3) {
             this.APeon6.setLocation(this.APeon6.getX() + 96, this.APeon6.getY() - 96);
         } else if (evt.getButton() == 1) {
             this.APeon6.setLocation(this.APeon6.getX() - 96, this.APeon6.getY() - 96);
         }
-    }//GEN-LAST:event_APeon6MouseClicked
+    }// GEN-LAST:event_APeon6MouseClicked
 
     private void APeon1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Peon2MouseClicked
         // TODO add your handling code here:
+        Ficha peon1 = new Ficha(this.APeon1.getX(), this.APeon1.getY(), false);
+        Ficha peon2 = new Ficha(this.APeon2.getX(), this.APeon2.getY(), false);
+
         if (evt.getButton() == 3) {
-            this.APeon1.setLocation(this.APeon1.getX() + 96, this.APeon1.getY() - 96);
+            if ((peon1.getX() + 96 & peon1.getY() - 96) == (peon2.getX() & peon2.getY())) {
+                System.out.println("Hay una pieza aqui");
+            } else {
+                this.APeon1.setLocation(this.APeon1.getX() + 96, this.APeon1.getY() - 96);
+            }
+
         } else if (evt.getButton() == 1) {
             this.APeon1.setLocation(this.APeon1.getX() - 96, this.APeon1.getY() - 96);
         }
@@ -273,11 +327,7 @@ public class DamasGUID extends javax.swing.JFrame {
 
     private void APeon3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_Peon3MouseClicked
         // TODO add your handling code here:
-        if (evt.getButton() == 3) {
-            this.APeon3.setLocation(this.APeon3.getX() + 96, this.APeon3.getY() - 96);
-        } else if (evt.getButton() == 1) {
-            this.APeon3.setLocation(this.APeon3.getX() - 96, this.APeon3.getY() - 96);
-        }
+        movimientoAzul(this.APeon3, evt);
     }// GEN-LAST:event_Peon3MouseClicked
 
     private void APeon3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_Peon3ActionPerformed
@@ -287,6 +337,25 @@ public class DamasGUID extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public void nuevasFichas(){
+        Ficha peon1 = new Ficha(this.APeon1.getX(), this.APeon1.getY(), false);
+        Ficha peon2 = new Ficha(this.APeon2.getX(), this.APeon2.getY(), false);
+    }
+    public void movimientoAzul(javax.swing.JButton pieza, java.awt.event.MouseEvent evt){
+        if (evt.getButton() == 3) {
+            pieza.setLocation(pieza.getX() + 96, pieza.getY() - 96);
+        } else if (evt.getButton() == 1) {
+            pieza.setLocation(pieza.getX() - 96, pieza.getY() - 96);
+        }
+    }
+    public boolean espacioVacio(Ficha peon, int posicionXIzq, int posicionYIzq, int posicionXDer, int posicionYDer){
+        boolean vacio;
+        if (true) {
+            System.out.println("Hay una pieza aqui");
+            vacio = false;
+        }
+        return vacio;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
@@ -333,9 +402,17 @@ public class DamasGUID extends javax.swing.JFrame {
     private javax.swing.JButton APeon7;
     private javax.swing.JButton APeon8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
