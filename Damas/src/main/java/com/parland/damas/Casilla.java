@@ -1,10 +1,10 @@
 package com.parland.damas;
 
 public class Casilla {
-    String nombre;
-    boolean ocupada;
-    int posicionX;
-    int posicionY;
+    private String nombre;
+    private boolean ocupada;
+    private int posicionX;
+    private int posicionY;
 
     public Casilla() {
     }
