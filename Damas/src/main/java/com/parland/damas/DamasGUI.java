@@ -5,13 +5,10 @@
  */
 package com.parland.damas;
 
-import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 
 /**
@@ -32,6 +29,7 @@ public class DamasGUI extends javax.swing.JFrame {
     Piezas[] rojas;
     Piezas[] azules;
     Casilla[][] tablero;
+    boolean turnoRojas = false;
 
     public DamasGUI() {
         initComponents();
@@ -123,11 +121,17 @@ public class DamasGUI extends javax.swing.JFrame {
         int posicionArray = Integer.parseInt(arregloDesc[0]);
         boolean isRojo = arregloDesc[1].equals("Roja");
         if (isRojo) {
-            String nuevaPosicion = getPositionXYCasilla(rojas[posicionArray].getNombreCasilla());
-            opcionesMovBtn(nuevaPosicion, rojas[posicionArray], posicionArray);
+            if (turnoRojas) {
+                String nuevaPosicion = getPositionXYCasilla(rojas[posicionArray].getNombreCasilla());
+                opcionesMovBtn(nuevaPosicion, rojas[posicionArray], posicionArray);
+                turnoRojas = false;
+            }
         } else {
-            String nuevaPosicion = getPositionXYCasilla(azules[posicionArray].getNombreCasilla());
-            opcionesMovBtn(nuevaPosicion, azules[posicionArray], posicionArray);
+            if (!turnoRojas) {
+                String nuevaPosicion = getPositionXYCasilla(azules[posicionArray].getNombreCasilla());
+                opcionesMovBtn(nuevaPosicion, azules[posicionArray], posicionArray);
+                turnoRojas = true;
+            }
         }
     }
 
@@ -136,7 +140,7 @@ public class DamasGUI extends javax.swing.JFrame {
 
         String[] arregloDesc = button.getName().split(",");
         String nombreCasillaActual = arregloDesc[0];
-        System.out.println("|" + nombreCasillaActual + "|");
+
         int posicionArray = Integer.parseInt(arregloDesc[1]);
         boolean isRoja = arregloDesc[2].equals("true");
         int[] pActualCasillaTab = new int[] {
@@ -148,27 +152,23 @@ public class DamasGUI extends javax.swing.JFrame {
 
         Casilla casillaActual = tablero[pActualCasillaTab[0]][pActualCasillaTab[1]];
         Casilla casillaMov = tablero[pMoverseCasillaTab[0]][pMoverseCasillaTab[1]];
-        System.out.println(casillaActual.getNombre());
-        System.out.println(btnAzules[posicionArray].getName());
+
         for (int i = 0; i < 4; i++) {
             btnOpciones[i].setVisible(false);
         }
         if (casillaActual.getNombre().equals(nombreCasillaActual)) {
-            System.out.println("nombreCasillaActual: " + nombreCasillaActual);
+
             casillaActual.setOcupada(false);
             casillaMov.setOcupada(true);
             if (isRoja) {
                 rojas[posicionArray].setNombreCasilla(casillaMov.getNombre());
-                System.out.println(casillaMov.getPosicionX() + "," + casillaMov.getPosicionY());
+
                 btnRojas[posicionArray].setLocation(casillaMov.getPosicionX(), casillaMov.getPosicionY());
             } else {
                 btnAzules[posicionArray].setLocation(casillaMov.getPosicionX(), casillaMov.getPosicionY());
                 azules[posicionArray].setNombreCasilla(casillaMov.getNombre());
             }
-        } else {
-            System.out.println("cayó al else");
         }
-        System.out.println(tablero[pActualCasillaTab[0]][pActualCasillaTab[1]].isOcupada());
     }
 
     public String getPositionXYCasilla(String nombreCasilla) {
@@ -208,7 +208,7 @@ public class DamasGUI extends javax.swing.JFrame {
             maxOp = 2;
             dir = "/images/MovOpcional.png";
         }
-        System.out.println(btnAzules[posicionPiezaArray].getName());
+
         for (int i = 0; i < maxOp; i++) {
             // Valida que no se salga del rango del arreglo
             if (opcionP[i][0] >= 0 && opcionP[i][0] < tablero.length && opcionP[i][1] >= 0
