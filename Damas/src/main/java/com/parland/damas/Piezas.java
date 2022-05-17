@@ -10,10 +10,18 @@ package com.parland.damas;
  * @author Usuario
  */
 public class Piezas {
-    boolean reina;
-    String nombreCasilla;
-    boolean muerto;
-    boolean rojas;
+    private boolean reina;
+    private String nombreCasilla;
+    private boolean muerto;
+    private boolean rojas;
+
+    // Constructores
+    public Piezas(String nombreCasilla, boolean reina, boolean muerto, boolean rojas) {
+        this.nombreCasilla = nombreCasilla;
+        this.reina = reina;
+        this.muerto = muerto;
+        this.rojas = rojas;
+    }
 
     public Piezas() {
 
