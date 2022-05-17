@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionEvent;
 
 /**
@@ -34,6 +36,7 @@ public class DamasGUI extends javax.swing.JFrame {
 
     public DamasGUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
         cargarBotones();
     }
 
@@ -104,14 +107,10 @@ public class DamasGUI extends javax.swing.JFrame {
                 }
             });
             btnOpciones[i].setVisible(false);
+            btnOpciones[i].setContentAreaFilled(false);
             jPanel2.add(btnOpciones[i]);
         }
     }
-    // LO QUE FALTA POR HACER
-
-    // sersiorarse :v setear si está o no ocupada la casilla
-    // Hacer funcionar los turnos
-    // Comer piezas + salto de espacio
 
     // Activa los botones de movimiento segun si es roja o azul
     public void clickBtnActivarOpciones(ActionEvent e) {
@@ -137,6 +136,7 @@ public class DamasGUI extends javax.swing.JFrame {
 
     public void clickOpcion(ActionEvent e) {
         JButton button = (JButton) e.getSource();
+        infoPiezaComer = button.getText();
         if (button.getName().equals("Killer")) {
             comerPieza();
         } else {
@@ -154,10 +154,31 @@ public class DamasGUI extends javax.swing.JFrame {
 
             Casilla casillaActual = tablero[pActualCasillaTab[0]][pActualCasillaTab[1]];
             Casilla casillaMov = tablero[pMoverseCasillaTab[0]][pMoverseCasillaTab[1]];
+            String[] casillasReina;
+            if (!isRoja) {
+                String[] cReina = { "B8", "D8", "F8", "H8" };
+                casillasReina = cReina;
+            } else {
+                String[] cReina = { "A1", "C1", "E1", "G1" };
+                casillasReina = cReina;
+            }
 
             for (int i = 0; i < 4; i++) {
                 btnOpciones[i].setVisible(false);
                 btnOpciones[i].setName("");
+
+                btnOpciones[i].setIcon(new ImageIcon(getClass().getResource("/images/MovOpcional.png")));
+                if (casillaMov.getNombre().equals(casillasReina[i])) {
+                    if (isRoja) {
+                        rojas[posicionArray].setReina(true);
+                        btnRojas[posicionArray].setIcon(new ImageIcon(getClass().getResource("/images/RojaReina.png")));
+                    } else {
+                        azules[posicionArray].setReina(true);
+                        btnAzules[posicionArray]
+                                .setIcon(new ImageIcon(getClass().getResource("/images/AzulReina.png")));
+                    }
+                }
+
             }
             if (casillaActual.getNombre().equals(nombreCasillaActual)) {
 
@@ -174,6 +195,28 @@ public class DamasGUI extends javax.swing.JFrame {
                 }
             }
         }
+        button.setText("");
+    }
+
+    public void finJuego(Piezas[] piezaColor) {
+
+        int cont = 0;
+        for (Piezas pA : piezaColor) {
+            if (pA.isMuerto()) {
+                cont++;
+            }
+        }
+        String nombre = "";
+        if (cont == 12) {
+            if (piezaColor[0].isRojas()) {
+                nombre = "azules";
+            } else {
+                nombre = "rojas";
+            }
+            JOptionPane.showMessageDialog(this, "Ganaron las " + nombre + "!", "Victoriaaaa!", 1);
+            reiniciarPartida();
+        }
+
     }
 
     public void comerPieza() {
@@ -186,6 +229,33 @@ public class DamasGUI extends javax.swing.JFrame {
         int posArrayComida = Integer.parseInt(arrInfo[1]);
         boolean isComidaRoja = arrInfo[2].equals("true");
         int posArrayJugador = Integer.parseInt(arrInfo[3]);
+
+        String[] casillasReina;
+        if (isComidaRoja) {
+            String[] cReina = { "B8", "D8", "F8", "H8" };
+            casillasReina = cReina;
+        } else {
+            String[] cReina = { "A1", "C1", "E1", "G1" };
+            casillasReina = cReina;
+        }
+
+        for (int i = 0; i < 4; i++) {
+            btnOpciones[i].setVisible(false);
+            btnOpciones[i].setName("");
+
+            btnOpciones[i].setIcon(new ImageIcon(getClass().getResource("/images/MovOpcional.png")));
+            if (cMov.getNombre().equals(casillasReina[i])) {
+                if (!isComidaRoja) {
+                    rojas[posArrayJugador].setReina(true);
+                    btnRojas[posArrayJugador].setIcon(new ImageIcon(getClass().getResource("/images/RojaReina.png")));
+                } else {
+                    azules[posArrayJugador].setReina(true);
+                    btnAzules[posArrayJugador]
+                            .setIcon(new ImageIcon(getClass().getResource("/images/AzulReina.png")));
+                }
+            }
+
+        }
 
         if (isComidaRoja) {
             for (int i = 0; i < azules.length; i++) {
@@ -220,6 +290,7 @@ public class DamasGUI extends javax.swing.JFrame {
                     this.tablero[xActCom][yActCom].setOcupada(false);
                     rojas[posArrayComida].setNombreCasilla("");
                     rojas[posArrayComida].setMuerto(true);
+
                 }
             }
             btnRojas[posArrayComida].setVisible(false);
@@ -232,6 +303,7 @@ public class DamasGUI extends javax.swing.JFrame {
                     this.tablero[xActCom][yActCom].setOcupada(false);
                     azules[posArrayComida].setNombreCasilla("");
                     azules[posArrayComida].setMuerto(true);
+
                 }
             }
             btnAzules[posArrayComida].setVisible(false);
@@ -241,8 +313,10 @@ public class DamasGUI extends javax.swing.JFrame {
 
         if (isComidaRoja) {
             btnAzules[posArrayJugador].setLocation(cMov.getPosicionX(), cMov.getPosicionY());
+            finJuego(rojas);
         } else {
             btnRojas[posArrayJugador].setLocation(cMov.getPosicionX(), cMov.getPosicionY());
+            finJuego(azules);
         }
     }
 
@@ -289,12 +363,17 @@ public class DamasGUI extends javax.swing.JFrame {
         int x = Integer.parseInt(arr[0]);
         int y = Integer.parseInt(arr[1]);
         int[][] opcionP;
+        String[] casillasReina;
         if (!roja) {
             int[][] opcionA = { { x - 1, y - 1 }, { x - 1, y + 1 }, { x + 1, y - 1 }, { x + 1, y + 1 } };
             opcionP = opcionA;
+            String[] cReina = { "B8", "D8", "F8", "H8" };
+            casillasReina = cReina;
         } else {
             int[][] opcionR = { { x + 1, y - 1 }, { x + 1, y + 1 }, { x - 1, y - 1 }, { x - 1, y + 1 } };
             opcionP = opcionR;
+            String[] cReina = { "A1", "C1", "E1", "G1" };
+            casillasReina = cReina;
         }
 
         int maxOp;
@@ -391,16 +470,20 @@ public class DamasGUI extends javax.swing.JFrame {
                 btnOpciones[direccion].setLocation(c.getPosicionX(), c.getPosicionY());
                 btnOpciones[direccion].setVisible(true);
                 btnOpciones[direccion].setName("Killer");
-                infoPiezaComer = opcionC[direccion][0] + "-" + opcionC[direccion][1] + "," + posicionPAComer + ","
-                        + p.isRojas() + ","
-                        + posicionPJugador;
+                btnOpciones[direccion]
+                        .setText(opcionC[direccion][0] + "-" + opcionC[direccion][1] + "," + posicionPAComer + ","
+                                + p.isRojas() + ","
+                                + posicionPJugador);
+                // infoPiezaComer = opcionC[direccion][0] + "-" + opcionC[direccion][1] + "," +
+                // posicionPAComer + ","
+                // + p.isRojas() + ","
+                // + posicionPJugador;
             }
         }
 
     }
 
     public void reiniciarPartida() {
-        System.out.println("holas");
         if (btnAzules != null) {
             for (int i = 0; i < btnAzules.length; i++) {
                 if (btnAzules[i] != null) {
@@ -497,6 +580,7 @@ public class DamasGUI extends javax.swing.JFrame {
                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/Logo_Damas.png")).getImage());
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuReiniciarMouseClicked(java.awt.event.MouseEvent evt) {
